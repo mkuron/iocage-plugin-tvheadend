@@ -66,5 +66,15 @@ iocage fetch -P tvheadend.json ip4_addr="vnet0|192.168.200.24/24" vnet=on defaul
 iocage stop tvheadend
 ./webcamd.sh
 iocage set devfs_ruleset=4265 tvheadend
-iocage fstab ...
+mkdir /mnt/iocage/tvheadend
+iocage fstab tvheadend -a "/mnt/iocage/tvheadend /usr/local/etc/tvheadend nullfs rw 0 0"
+iocage start tvheadend
+iocage exec tvheadend service tvheadend stop
+iocage exec tvheadend tvheadend -C
+```
+
+Now, open http://192.168.200.24:9981, set a password and complete the setup wizard. Then, restart the jail to enable authentication:
+
+```bash
+iocage restart tvheadend
 ```
