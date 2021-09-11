@@ -70,7 +70,8 @@ mkdir /mnt/iocage/tvheadend
 iocage fstab tvheadend -a "/mnt/iocage/tvheadend /usr/local/etc/tvheadend nullfs rw 0 0"
 iocage start tvheadend
 iocage exec tvheadend service tvheadend stop
-iocage exec tvheadend tvheadend -C
+iocage exec tvheadend chown tvheadend /usr/local/etc/tvheadend
+iocage exec tvheadend "tvheadend -C -u tvheadend"
 ```
 
 Now, open http://192.168.200.24:9981, set a password and complete the setup wizard. Then, restart the jail to enable authentication:
