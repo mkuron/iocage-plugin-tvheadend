@@ -66,15 +66,16 @@ iocage fetch -P tvheadend.json ip4_addr="vnet0|192.168.200.24/24" vnet=on defaul
 iocage stop tvheadend
 ./webcamd.sh
 iocage set devfs_ruleset=4265 tvheadend
-mkdir /mnt/iocage/tvheadend
+mkdir /mnt/iocage/tvheadend /mnt/iocage/tvheadend/recordings
 iocage fstab tvheadend -a "/mnt/iocage/tvheadend /usr/local/etc/tvheadend nullfs rw 0 0"
+iocage fstab tvheadend -a "/mnt/Daten/groups/Filme/Recordings /usr/local/etc/tvheadend/recordings nullfs rw 0 0"
 iocage start tvheadend
 iocage exec tvheadend service tvheadend stop
-iocage exec tvheadend chown tvheadend /usr/local/etc/tvheadend
+iocage exec tvheadend chown tvheadend /usr/local/etc/tvheadend /usr/local/etc/tvheadend
 iocage exec tvheadend "tvheadend -C -u tvheadend"
 ```
 
-Now, open http://192.168.200.24:9981, set a password and complete the setup wizard. Then, restart the jail to enable authentication:
+Now, open http://192.168.200.24:9981, set a password and complete the setup wizard. Go to Configuration, Recording and set the path to _/usr/local/etc/tvheadend/recordings_. Then, restart the jail to enable authentication:
 
 ```bash
 iocage restart tvheadend
