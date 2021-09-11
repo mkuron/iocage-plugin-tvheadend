@@ -1,5 +1,5 @@
 {
-  "name": "unificontroller",
+  "name": "tvheadend",
   "release": "12.2-RELEASE",
   "artifact": "https://github.com/mkuron/iocage-plugin-tvheadend.git",
   "pkgs": [

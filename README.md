@@ -28,7 +28,7 @@ Which firmware file(s) you need depends on your DVB hardware. Plug it into a Lin
 cd /boot/modules
 curl -LO https://github.com/OpenELEC/dvb-firmware/raw/master/firmware/dvb-usb-dib0700-1.20.fw
 curl -LO https://github.com/armbian/firmware/raw/master/dvb-demod-mn88472-02.fw
-`
+```
 
 ## Install webcamd
 
@@ -62,8 +62,9 @@ Finally, log into the TrueNAS admin UI, go to _Tasks_, _Init/Shutdown Scripts_, 
 ## Install tvheadend
 
 ```
-iocage fetch -P -n tvheadend.json ip4_addr="vnet0|192.168.200.24/24" vnet=on defaultrouter=192.168.200.1
+iocage fetch -P tvheadend.json ip4_addr="vnet0|192.168.200.24/24" vnet=on defaultrouter=192.168.200.1
 iocage stop tvheadend
+./webcamd.sh
 iocage set devfs_ruleset=4265 tvheadend
 iocage fstab ...
 ```
