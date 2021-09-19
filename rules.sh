@@ -12,4 +12,3 @@ devfs rule -s $RULESET add include 4
 devfs rule -s $RULESET add path dvb mode 555 unhide
 devfs rule -s $RULESET add path dvb/adapter* mode 555 unhide
 devfs rule -s $RULESET add path 'dvb/adapter*/*' mode 660 unhide
-devfs rule -s $RULESET add path cuse mode 664 unhide
