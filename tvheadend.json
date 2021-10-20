@@ -3,7 +3,9 @@
   "release": "12.2-RELEASE",
   "artifact": "https://github.com/mkuron/iocage-plugin-tvheadend.git",
   "pkgs": [
-    "tvheadend"
+    "tvheadend",
+    "ffmpeg",
+    "redir"
   ],
   "packagesite": "http://pkg.FreeBSD.org/${ABI}/latest",
   "fingerprints": {
