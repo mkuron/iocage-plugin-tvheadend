@@ -8,12 +8,13 @@ so you need to run webcamd outside `iocage`.
 [Tvheadened](https://tvheadend.org), which can record and stream the captured television signals,
 on the other hand, will run fine in a jail.
 
-The hardware I tried are the [Xbox One Digital TV Tuner](https://www.linuxtv.org/wiki/index.php/Xbox_One_Digital_TV_Tuner)
-and the [AVerMedia TD310](https://www.linuxtv.org/wiki/index.php/AVerTV_TD310).
-Both can handle DVB-T, DVB-T2, and DVB-C and are easily sourced on eBay and various online shops.
+The hardware I tried are the [Xbox One Digital TV Tuner](https://www.linuxtv.org/wiki/index.php/Xbox_One_Digital_TV_Tuner),
+the [AVerMedia TD310](https://www.linuxtv.org/wiki/index.php/AVerTV_TD310),
+and the [TechnoTrend CT2-4400](https://www.linuxtv.org/wiki/index.php/TechnoTrend_TT-TVStick_CT2-4400).
+All can handle DVB-T, DVB-T2, and DVB-C and are easily sourced on eBay and various online shops.
 Their main advantage is that the manufacturer does not sell different revisions with different chipsets under the same name -- often only some revisions have Linux support.
 In my experience, the Xbox tuner occasionally produces continuity errors in Tvheadend,
-while the TD310 works fine so far.
+while the TD310 works fine.
 
 As a first step, clone this repository to your TrueNAS machine:
 
@@ -43,6 +44,8 @@ curl -LO https://github.com/OpenELEC/dvb-firmware/raw/master/firmware/dvb-usb-di
 curl -LO https://github.com/armbian/firmware/raw/master/dvb-demod-mn88472-02.fw
 curl -LO https://github.com/OpenELEC/dvb-firmware/raw/master/firmware/dvb-usb-it9303-01.fw
 curl -LO https://github.com/OpenELEC/dvb-firmware/raw/master/firmware/dvb-demod-si2168-b40-01.fw
+curl -LO https://github.com/OpenELEC/dvb-firmware/raw/master/firmware/dvb-demod-si2168-a30-01.fw
+curl -LO https://github.com/OpenELEC/dvb-firmware/raw/master/firmware/dvb-tuner-si2158-a20-01.fw
 ```
 
 ## Install webcamd
