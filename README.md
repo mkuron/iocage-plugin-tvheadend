@@ -32,7 +32,10 @@ tar --strip-components=3 -xvf kernel.txz boot/kernel/cuse.ko
 mv cuse.ko /boot/modules
 ```
 
-You will need to repeat these commands after major TrueNAS updates.
+Before any major TrueNAS update (e.g. from 12.x to 13.x), you need to execute `rm /boot/modules/cuse.ko`,
+otherwise you will get a kernel panic upon reboot with messages like
+`panic: malloc_init: type cuse with unsupported version 877983977`.
+After the reboot, repeat the above commands to install cuse.ko for the new kernel.
 
 ## Install DVB firmware
 
@@ -79,7 +82,7 @@ Finally, log into the TrueNAS admin UI, go to _Tasks_, _Init/Shutdown Scripts_, 
 
 ## Install tvheadend
 
-```
+```bash
 iocage fetch -P tvheadend.json ip4_addr="vnet0|192.168.200.24/24" vnet=on defaultrouter=192.168.200.1
 iocage stop tvheadend
 ./webcamd.sh
